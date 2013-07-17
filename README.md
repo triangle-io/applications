@@ -1,3 +1,4 @@
+# Sample Applications using Triangle APIs #
 This repository contains sample applications that leverage the Triangle API to interact with payment cards. 
 ## Setup instructions for your own applications ##
 Triangle uses latest security standards to encrypt cardholder information and also allows the APIs only to be used within registered applications. To use the APIs in your own applications, follow these steps:
