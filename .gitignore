@@ -18,3 +18,10 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+# ignore file created by bsd or exuberant ctags
+tags
+
+# IntelliJ Workspace Settings
+*/.idea/workspace.xml
+*/.idea/tasks.xml
