@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:padding="3dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_above="@+id/textView"
+                android:layout_alignParentTop="true">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/main_LinearLayout_root"
+                android:padding="8dp"
+                android:orientation="vertical"
+                android:animateLayoutChanges="true"
+                android:layout_alignParentTop="true" android:layout_above="@+id/textView">
+            <io.triangle.reader.sample.Header android:id="@+id/main_header" android:layout_height="wrap_content" android:layout_width="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like what you see?"
+            android:id="@+id/textView"
+            android:gravity="center_vertical" android:layout_above="@+id/main_button_tell_a_friend"
+            android:layout_centerHorizontal="true" android:textAppearance="@android:style/TextAppearance.Medium"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tell a friend"
+            android:id="@+id/main_button_tell_a_friend"
+            android:layout_alignParentBottom="true" android:layout_alignParentRight="false" android:onClick="recommend"
+            android:layout_centerHorizontal="true"/>
+</RelativeLayout>
