@@ -27,15 +27,10 @@ public class Application extends android.app.Application
                     // to your own environment, please use keys associated with your own developer account
                     try
                     {
-                        //triangleSession.initialize(
-                        //        "ypcu3F6s3UZByVm", // Application ID
-                        //        "JyA9Qbil4E",      // Access Key
-                        //        "O7ZiSeoLFzUs0M7zoJl5IsKrNtNTDJaMUw6AXMCiV6NYIgxN2gMzZZVmnxvpqv7W", // Secret Key
-                        //        Application.this);
                         triangleSession.initialize(
-                                "fynCpLrUALG5HWS", // Application ID
-                                "BDCmscCLGU",      // Access Key
-                                "OuAWeW2HAL58ghsOm43g0uQCElEtswyYOH7V2P589dvS0tmkUDPxIpTkDYiSiye3", // Secret Key
+                                "ypcu3F6s3UZByVm", // Application ID
+                                "JyA9Qbil4E",      // Access Key
+                                "O7ZiSeoLFzUs0M7zoJl5IsKrNtNTDJaMUw6AXMCiV6NYIgxN2gMzZZVmnxvpqv7W", // Secret Key
                                 Application.this);
                     }
                     catch (Exception exception)
