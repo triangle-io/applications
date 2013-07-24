@@ -11,11 +11,11 @@ For more information on setup instructions, check out [the blog post](http://www
 ## Initializing the Triangle APIs
 Before you can utilize the classes defined in the APIs, you need to initialize the APIs. This steps is done to exchange your private keys between the Triangle server and your application so that information scanned by your application is provided in an encrypted format.
 
-You can defer the initialization to the first time you make use of the functions, or you can do so at the application's startup as shown in TODO
+You can defer the initialization to the first time you make use of the functions, or you can do so at the application's startup as shown [in the Reader sample application](Android/Reader/src/io/triangle/reader/sample/Application.java).
 
 To initialize the API, you need to provide your Access Key, Secret Key and the Application ID in which you are using the APIs. This information can be obtained from the [keys page](http://www.triangle.io/Keys).
 ## Requirements
-The Triangle API runs on NFC enabled Android devices running OS version 2.3 and above. The API can of course be used in the same application running on both NFC enabled and non-NFC enabled devices. For exact set of permissions required by the APIs, please see [the blog post](http://www.triangle.io/Blog/Index/2).
+The Triangle API runs on NFC enabled Android devices running OS version 14 and above. The API can of course be used in the same application running on both NFC enabled and non-NFC enabled devices. For exact set of permissions required by the APIs, please see [the blog post](http://www.triangle.io/Blog/Index/2).
 ## Questions?
 There are a variety of ways to get a hold of us:
 
