@@ -1,6 +1,9 @@
 package io.triangle.reader.sample;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,48 @@ public class ReaderActivitySample extends ReaderActivity
 
         this.header = (Header)this.findViewById(R.id.main_header);
         this.root = (LinearLayout)this.findViewById(R.id.main_LinearLayout_root);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        // Ensure that the device's NFC sensor is on
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
+        if (nfcAdapter != null && !nfcAdapter.isEnabled())
+        {
+            // Alert the user that NFC is off
+            new AlertDialog.Builder(this)
+                    .setTitle("NFC Sensor Turned Off")
+                    .setMessage("In order to use this application, the NFC sensor must be turned on. Do you wish to turn it on?")
+                    .setPositiveButton("Go to Settings", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
+                            // Send the user to the settings page and hope they turn it on
+                            if (android.os.Build.VERSION.SDK_INT >= 16)
+                            {
+                                startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS));
+                            }
+                            else
+                            {
+                                startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
+                            }
+                        }
+                    })
+                    .setNegativeButton("Do Nothing", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
+                            // Do nothing
+                        }
+                    })
+                    .show();
+        }
     }
 
     /**
@@ -58,7 +103,7 @@ public class ReaderActivitySample extends ReaderActivity
         }
         else
         {
-            // Card was successfuly read, create a new card view and add it to the layout so that the user can see the
+            // Card was successfully read, create a new card view and add it to the layout so that the user can see the
             // card information
             int index = this.root.getChildCount();
             this.root.addView(
@@ -78,7 +123,7 @@ public class ReaderActivitySample extends ReaderActivity
         recommendIntent.setType("text/plain");
 
         recommendIntent.putExtra(Intent.EXTRA_TEXT, "Hey!\r\nCheckout this cool app, it scans your credit card when you tap it to your phone.\r\nhttp://play.google.com/store/apps/details?id=io.triangle.reader.sample");
-        recommendIntent.putExtra(Intent.EXTRA_SUBJECT, "App that lets you scan your credit card");
+        recommendIntent.putExtra(Intent.EXTRA_SUBJECT, "App that scans your credit card");
 
         this.startActivity(Intent.createChooser(recommendIntent, "Share App"));
     }
