@@ -1,5 +1,5 @@
 # Sample Applications using Triangle APIs #
-This repository contains sample applications that leverage the Triangle API to interact with payment cards. 
+This repository contains sample applications that leverage the Triangle API to interact with payment cards. Triangle allows you to scan MasterCard PayPass, Visa PayWave, Interac Flash and American Express ExpressPay cards with your NFC enabled device.
 ## Setup instructions for your own applications ##
 Triangle uses latest security standards to encrypt cardholder information and also allows the APIs only to be used within registered applications. To use the APIs in your own applications, follow these steps:
 
