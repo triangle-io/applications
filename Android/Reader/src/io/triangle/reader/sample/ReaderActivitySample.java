@@ -89,17 +89,26 @@ public class ReaderActivitySample extends ReaderActivity
      * This method is called after the card has been processed via NFC.
      * @param cardInformation will contain information obtained from the NFC card. If there was a failure processing
      *                        the card, this object will be null.
+     * @param exception       Any exception that may be thrown when NFC communication occurred.
      */
     @Override
-    protected void onPostNFCExecute(PaymentCard cardInformation)
+    protected void onPostNFCExecute(PaymentCard cardInformation, Exception exception)
     {
         // Indicate to the user that the scanning process is finished
         this.header.stopFading();
 
         if (cardInformation == null)
         {
-            // The card could not be scanned properly. Inform the user as such.
-            Toast.makeText(this, "Scanning failed, please try again.", Toast.LENGTH_SHORT).show();
+            if (exception != null)
+            {
+                // If an exception is available, show the user the message it contains.
+                Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                // The card could not be scanned properly. Inform the user as such.
+                Toast.makeText(this, "Scanning failed, please try again.", Toast.LENGTH_SHORT).show();
+            }
         }
         else
         {
