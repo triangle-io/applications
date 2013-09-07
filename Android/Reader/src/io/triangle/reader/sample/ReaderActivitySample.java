@@ -82,7 +82,7 @@ public class ReaderActivitySample extends ReaderActivity
     {
         // Indicate to the user that card is being scanned
         this.header.minimize();
-        this.header.startRotating();
+        this.header.startFading();
     }
 
     /**
@@ -94,7 +94,7 @@ public class ReaderActivitySample extends ReaderActivity
     protected void onPostNFCExecute(PaymentCard cardInformation)
     {
         // Indicate to the user that the scanning process is finished
-        this.header.stopRotating();
+        this.header.stopFading();
 
         if (cardInformation == null)
         {
@@ -107,7 +107,7 @@ public class ReaderActivitySample extends ReaderActivity
             // card information
             int index = this.root.getChildCount();
             this.root.addView(
-                    new CardView(this.root, cardInformation, this, index),
+                    new CardView(this.root, cardInformation, this),
                     index,
                     new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }

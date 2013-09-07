@@ -5,6 +5,7 @@ import android.text.util.Linkify;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -96,23 +97,23 @@ public class Header extends RelativeLayout
         }
     }
 
-    public void startRotating()
+    public void startFading()
     {
-        Animation rotateAnimation = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.4479f, Animation.RELATIVE_TO_SELF, 0.6039f);
+        Animation fadeAnimation = new AlphaAnimation(1.0f, 0.0f);
 
         // Rotate with linear speed
-        rotateAnimation.setInterpolator(new LinearInterpolator());
+        fadeAnimation.setInterpolator(new LinearInterpolator());
 
         // Repeat indefinitely
-        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        fadeAnimation.setRepeatCount(Animation.INFINITE);
 
-        // One rotation should take 700ms
-        rotateAnimation.setDuration(700);
+        // One fade should take 700ms
+        fadeAnimation.setDuration(700);
 
-        this.logo.startAnimation(rotateAnimation);
+        this.logo.startAnimation(fadeAnimation);
     }
 
-    public void stopRotating()
+    public void stopFading()
     {
         this.logo.clearAnimation();
     }
