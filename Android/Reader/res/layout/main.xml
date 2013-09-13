@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:padding="3dp" android:layout_width="match_parent" android:layout_height="match_parent">
-    <ScrollView android:layout_width="fill_parent"
+    <io.triangle.reader.sample.Header android:id="@+id/main_header" android:layout_height="wrap_content" android:layout_width="match_parent"
+                                      android:gravity="center_horizontal" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <ScrollView android:layout_width="wrap_content"
                 android:layout_height="fill_parent" android:layout_above="@+id/textView"
-                android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:id="@+id/main_ScrollView_scroller" android:layout_below="@+id/main_header">
         <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -10,10 +13,7 @@
                 android:padding="8dp"
                 android:orientation="vertical"
                 android:animateLayoutChanges="true"
-                android:layout_alignParentTop="true" android:layout_above="@+id/textView"
                 android:gravity="center_horizontal">
-            <io.triangle.reader.sample.Header android:id="@+id/main_header" android:layout_height="wrap_content" android:layout_width="match_parent"
-                                              android:gravity="center_horizontal"/>
         </LinearLayout>
     </ScrollView>
     <TextView

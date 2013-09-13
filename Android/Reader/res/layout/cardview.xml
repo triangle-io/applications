@@ -3,8 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="357dp"
               android:layout_height="221.74dp"
-              android:layout_gravity="center_horizontal"
-              android:gravity="center_horizontal"
+              android:layout_gravity="center"
+              android:gravity="center"
               android:animateLayoutChanges="true"
               android:layout_marginTop="10dp"
               android:id="@+id/cardview_relativeLayout_root">

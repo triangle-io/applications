@@ -3,6 +3,7 @@ package io.triangle.reader.sample;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class ReaderActivitySample extends ReaderActivity
 {
     Header header;
     LinearLayout root;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +32,7 @@ public class ReaderActivitySample extends ReaderActivity
 
         this.header = (Header)this.findViewById(R.id.main_header);
         this.root = (LinearLayout)this.findViewById(R.id.main_LinearLayout_root);
+        this.scrollView = (ScrollView)this.findViewById(R.id.main_ScrollView_scroller);
     }
 
     @Override
@@ -114,11 +117,21 @@ public class ReaderActivitySample extends ReaderActivity
         {
             // Card was successfully read, create a new card view and add it to the layout so that the user can see the
             // card information
-            int index = this.root.getChildCount();
+            CardView cardView = new CardView(this.root, cardInformation, this);
             this.root.addView(
-                    new CardView(this.root, cardInformation, this),
-                    index,
+                    cardView,
+                    0,
                     new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            // Ensure that newly added card is on the screen
+            scrollView.post(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    scrollView.smoothScrollTo(0, 0);
+                }
+            });
         }
     }
 

@@ -4,9 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.widget.*;
 
 import io.triangle.reader.PaymentCard;
@@ -20,7 +18,7 @@ import java.util.Random;
  * obtained via the Triangle API and stores information of a payment card. This class simply presents the information
  * to the user in a user interface.
  */
-public class CardView extends RelativeLayout
+public class CardView extends LinearLayout
 {
     private TextView cardholder;
     private TextView accountNumber;
@@ -45,6 +43,9 @@ public class CardView extends RelativeLayout
         // Inflate the layout
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.cardview, this, true);
+
+        // Center this element in its parent
+        this.setGravity(Gravity.CENTER);
 
         // Set the background of the view based on the index of the card. We have 3 colors and
         // will choose the color to use based on % 3
