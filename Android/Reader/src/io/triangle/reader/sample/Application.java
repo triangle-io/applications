@@ -1,6 +1,7 @@
 package io.triangle.reader.sample;
 
 import android.os.AsyncTask;
+import android.widget.Toast;
 import io.triangle.Session;
 
 public class Application extends android.app.Application
@@ -15,6 +16,17 @@ public class Application extends android.app.Application
 
         if (!triangleSession.isInitialized())
         {
+            // TODO: You need to obtain keys from http://www.triangle.io to be able to run the application
+            final String applicationId = "TODO";
+            final String accessKey = "TODO";
+            final String secretKey = "TODO" ;
+
+            // Let the developer know that they need keys in case they have not added them here
+            if (applicationId.equals("TODO"))
+            {
+                Toast.makeText(this, "You need to obtain keys from triangle.io before running the sample application", Toast.LENGTH_LONG).show();
+            }
+
             // Since the initialization performs network IO, we should execute it in a background thread
             AsyncTask<Void, Void, Void> triangleInitializationTask = new AsyncTask<Void, Void, Void>()
             {
@@ -23,14 +35,12 @@ public class Application extends android.app.Application
                 @Override
                 protected Void doInBackground(Void... voids)
                 {
-                    // Please note that the keys below will only work in the sample application. Before deploying
-                    // to your own environment, please use keys associated with your own developer account
                     try
                     {
                         triangleSession.initialize(
-                                "ypcu3F6s3UZByVm", // Application ID
-                                "JyA9Qbil4E",      // Access Key
-                                "O7ZiSeoLFzUs0M7zoJl5IsKrNtNTDJaMUw6AXMCiV6NYIgxN2gMzZZVmnxvpqv7W", // Secret Key
+                                applicationId, // Application ID
+                                accessKey,      // Access Key
+                                secretKey, // Secret Key
                                 Application.this);
                     }
                     catch (Exception exception)
@@ -48,7 +58,8 @@ public class Application extends android.app.Application
 
                     if (this.exception != null)
                     {
-                        // Do error handling if initialization was not successful
+                        // TODO: Do error handling if initialization was not successful
+                        Toast.makeText(Application.this, this.exception.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             };

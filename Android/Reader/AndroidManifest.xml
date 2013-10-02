@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Note: If you are intending to use this application as a starting point, you should change the package name to something
+    unique to yourself. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="io.triangle.reader.sample"
           android:versionCode="4"
