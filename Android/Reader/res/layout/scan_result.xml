@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:padding="3dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_imageView_logo" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:src="@drawable/ic_triangle_top" android:focusableInTouchMode="false"
+            android:layout_marginTop="10dp" android:layout_marginLeft="5dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit http://www.triangle.io to use this technology free of charge in your own apps."
+            android:id="@+id/header_textView_caption"
+            android:layout_alignBaseline="@+id/header_imageView_logo" android:layout_toRightOf="@+id/header_imageView_logo"
+            android:layout_marginTop="17dp" android:layout_marginLeft="5dp"/>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_LinearLayout_root"
+            android:orientation="vertical"
+            android:animateLayoutChanges="true"
+            android:layout_below="@+id/header_imageView_logo"
+            android:layout_above="@+id/main_button_scan_again" android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true">
+    </LinearLayout>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_imageButton_facebook"
+            android:src="@drawable/ic_facebook"
+            android:background="@android:color/transparent" android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/main_imageButton_twitter"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_imageButton_twitter"
+            android:src="@drawable/ic_twitter"
+            android:background="@android:color/transparent" android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/main_imageButton_linkedin"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_imageButton_linkedin"
+            android:layout_alignParentBottom="true" android:src="@drawable/ic_linkedin"
+            android:background="@android:color/transparent" android:layout_centerHorizontal="true"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_imageButton_googleplus" android:layout_toRightOf="@+id/main_imageButton_linkedin"
+            android:src="@drawable/ic_googleplus"
+            android:background="@android:color/transparent" android:layout_alignParentBottom="true"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_imageButton_share" android:layout_toRightOf="@+id/main_imageButton_googleplus"
+            android:src="@drawable/ic_share"
+            android:background="@android:color/transparent" android:layout_alignParentBottom="true"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan Again"
+            android:id="@+id/main_button_scan_again"
+            android:onClick="onScanButtonClick"
+            android:background="@android:color/holo_blue_dark" style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_marginRight="10dp" android:paddingLeft="10dp" android:paddingRight="10dp"
+            android:layout_centerHorizontal="true" android:layout_above="@+id/scan_result_textView_share"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share this app with your friends"
+            android:id="@+id/scan_result_textView_share" android:layout_centerHorizontal="true"
+            android:layout_above="@+id/main_imageButton_linkedin" android:paddingTop="9dp"/>
+</RelativeLayout>
