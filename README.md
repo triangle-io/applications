@@ -9,7 +9,7 @@ Triangle uses latest security standards to encrypt cardholder information and al
 
 For more information on setup instructions, check out [the blog post](http://www.triangle.io/Blog/Index/2).
 ## Initializing the Triangle APIs
-Before you can utilize the classes defined in the APIs, you need to initialize the APIs. This steps is done to exchange your private keys between the Triangle server and your application so that information scanned by your application is provided in an encrypted format.
+Before you can utilize the classes defined in the APIs, you need to initialize the APIs. This step is done to exchange your private keys between the Triangle server and your application so that information scanned by your application is provided in an encrypted format.
 
 You can defer the initialization to the first time you make use of the functions, or you can do so at the application's startup as shown [in the Reader sample application](Android/Reader/src/io/triangle/reader/sample/Application.java).
 
