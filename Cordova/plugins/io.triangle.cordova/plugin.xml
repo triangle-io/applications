@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="io.triangle.cordova"
+        version="1.0.0">
+
+    <name>Triangle</name>
+    <description>Triangle.io Cordova Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>triangle,nfc,paywave,paypass,visa,mastercard</keywords>
+    <repo>https://github.com/triangle-io/plugins.git</repo>
+    <issue>https://github.com/triangle-io/plugins/issues</issue>
+
+    <!-- Currently targetting Cordova 3.0 and above -->
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+
+        <js-module src="www/triangle.js" name="Triangle">
+            <clobbers target="navigator.triangle" />
+        </js-module>
+
+	<config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Triangle">
+	        <param name="android-package" value="io.triangle.cordova.CardScanner" />
+	    </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.NFC" />
+	    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+            <uses-feature android:name="android.hardware.nfc" android:required="false" />
+        </config-file>
+
+        <source-file src="src/android/CardScanner.java" target-dir="src/io/triangle/cordova" />
+        <source-file src="libs/android/triangle.io-1.0.6.jar" target-dir="libs" />
+
+    </platform>
+
+</plugin>
