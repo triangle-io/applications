@@ -1,6 +1,7 @@
 package io.triangle.cordova;
 
 import android.os.Parcel;
+import android.content.Intent;
 import android.util.Log;
 import io.triangle.Session;
 import io.triangle.TriangleException;
@@ -56,6 +57,15 @@ public class CardScanner extends CordovaPlugin implements TapListener
         if (Session.getInstance().isInitialized() && this.tapProcessor != null)
         {
             this.tapProcessor.pause();
+        }
+    }
+
+    @Override
+    public void onNewIntent(Intent intent)
+    {
+        if (Session.getInstance().isInitialized() && this.tapProcessor != null)
+        {
+            this.tapProcessor.processIntent(intent);
         }
     }
 
